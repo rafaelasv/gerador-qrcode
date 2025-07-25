@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Gerador de QR Code</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter&family=Space+Grotesk&display=swap" rel="stylesheet" />
+  <link href="https://fonts.cdnfonts.com/css/isidora-soft-alt" rel="stylesheet" />
+  <link href="https://fonts.cdnfonts.com/css/isidora-soft-alt" rel="stylesheet">
+                
+  <link rel="stylesheet" href="styles.css"> <!-- link para o CSS externo -->
+  <script src="https://cdn.jsdelivr.net/npm/qr-code-styling@1.5.0/lib/qr-code-styling.js"></script>
+</head>
+<body>
+
+  <button class="toggle-theme-btn">Tema</button>
+
+  <nav>
+    <ul>
+      <li><a href="#" class="active">Gerador</a></li>
+      <li><a href="#">Sobre</a></li>
+    </ul>
+  </nav>
+  
+  <div class="container">
+  <div class="caixa-esquerda">
+    <h1 class="titulo">Gerador de QR Code</h1>
+    <h2 class="subtitulo">
+      Digite um link ou texto e gere seu QR Code instantaneamente. Depois, é só baixar e usar onde quiser!
+    </h2>
+    <input type="text" id="texto" placeholder="Digite um link ou texto" />
+    <br />
+    <button type="button" onclick="gerarQRCode()">Gerar QR Code</button>
+  </div>
+
+  <div class="caixa-direita">
+  <div id="qrcode"></div>
+  <div class="botao-direito">
+    <button type="button" onclick="baixarQRCode()">Baixar</button>
+  </div>
+</div>
+</div>
+
+</body>
+</html>

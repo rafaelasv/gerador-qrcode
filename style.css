@@ -1,0 +1,359 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+/* =======================
+   NAVEGAÇÃO
+   ======================= */
+nav {
+ background-color: #002631;
+ padding: 10px 20px;
+ color: #9fffcb;
+ border-radius: 20px;
+ border: 2px solid #9fffcb;
+  
+ position: fixed; /* fixa a navbar na tela */
+ width: 400px;
+ height: 45px;
+ left: 50%;/* ocupa toda a largura */
+ top: 25px; 
+ z-index: 1000;
+ transform: translateX(-50%);
+  
+}
+
+/* Lista sem estilo padrão */
+nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center; /* centraliza os itens horizontalmente */
+  flex-wrap: nowrap; /* impede quebra de linha */
+}
+
+/* Itens da lista */
+nav ul li {
+  font-family: 'Space Grotesk', sans-serif;
+  margin: 0 10px;
+}
+
+/* Links da navbar */
+nav ul li a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  font-family: 'Space Grotesk', sans-serif;
+}
+
+/* Hover nos links */
+nav ul li a:hover {
+  color: #9fffcb;
+}
+
+nav ul li a.active {
+  color: #9fffcb;
+  font-weight: bold;
+  position: relative; /* precisa para o ::after funcionar corretamente */
+  border-bottom: none; /* remover a borda padrão */
+}
+
+nav ul li a.active::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -2px; /* posiciona a linha um pouco abaixo do texto */
+  height: 2px;
+  width: 0; /* começa com largura zero */
+  background-color: #9fffcb;
+  transition: width 0.4s ease; /* transição suave */
+  /* ou use animation para fazer na entrada */
+}
+
+/* quando a página carrega (ou hover, se quiser animar) */
+nav ul li a.active::after {
+  width: 100%; /* anima a largura até 100% */
+}
+
+
+body {
+  text-align: center;
+  padding: 40px;
+  padding-top: 150px;
+  background-color: #004e64;
+}
+
+/* =======================
+   CONTAINER E CAIXAS
+   ======================= */
+.container {
+  display: grid;
+  grid-template-columns: 1.3fr 1fr;
+  gap: 40px; /* espaço entre as colunas */
+  align-items: center; /* alinha os conteúdos verticalmente */
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 20px 10px; 
+  
+  border: 2px solid #9fffcb; /* borda verde clara */
+  border-radius: 300px;
+  background-color: #003845;
+}
+
+.caixa-esquerda {
+  display: flex;
+  flex-direction: column; /* empilha verticalmente */
+  justify-content: center; /* centraliza verticalmente */
+  align-items: center; /* centraliza horizontalmente */
+  height: 100%; /* para que a centralização vertical funcione */
+  text-align: center; /* centraliza o texto dentro dos elementos */
+ min-height: 300px;
+}
+
+.caixa-direita {
+  display: flex;
+  flex-direction: column; /* empilha verticalmente */
+  justify-content: center; /* centraliza verticalmente */
+  align-items: center; /* centraliza horizontalmente */
+  background-color: #9fffcb;
+  height: 100%;
+  border-radius: 200px;
+  padding: 20px;
+  margin-right: 10px;
+  gap: 20px; /* espaço entre QR Code e botão */
+ min-height: 300px;
+}
+
+/* =======================
+   BOTÕES
+   ======================= */
+button {
+  padding: 10px 20px;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 16px;
+  margin-top: 10px;
+  background-color: #002631;
+  color: white;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+}
+
+.botao-direito button {
+  padding: 10px 20px;
+  background-color: #002631;
+  color: white;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 16px;
+  margin-top: 30px;
+}
+
+.botao-direito button:hover {
+  background-color: black;
+}
+
+.titulo{
+  font-family: 'Isidora Soft', sans-serif;
+  font-weight: bold;
+  font-size: 45px;
+  color: #9fffcb;
+  margin-top: 20px;
+  margin-bottom: 30px;
+}
+
+.subtitulo {
+  font-family: 'Inter', sans-serif;
+  font-size: 16px;
+  color: white;
+  max-width: 400px;
+  text-align: center;
+  margin: 0 auto 20px; /* topo 0, laterais auto (centralizado), e embaixo 20px para afastar do input*/
+  line-height: 1.4;
+}
+
+input {
+  padding: 10px;
+  font-size: 16px;
+  width: 300px;
+  border-radius: 20px;
+  border: 1px solid #ccc;
+  font-family: 'Inter', sans-serif;
+}
+
+#qrcode {
+ margin-top: 60px;
+}
+
+/* =======================
+   MEDIA QUERIES - RESPONSIVIDADE
+   ======================= */
+/* Para telas até 768px */
+/* Para telas até 768px */
+@media (max-width: 768px) {
+  .container {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    border-radius: 40px;
+  }
+
+  .caixa-direita {
+    width: 100%;
+    border-radius: 40px;
+    padding: 20px;
+    margin-top: 20px;
+  }
+
+  .titulo {
+    font-size: 32px;
+  }
+
+  .subtitulo {
+    font-size: 15px;
+    max-width: 90%;
+  }
+
+  input {
+    width: 100%;
+  }
+}
+
+/* Para telas até 600px */
+@media (max-width: 600px) {
+  input,
+  button {
+    width: 90%;
+    font-size: 18px;
+  }
+}
+
+/* Para telas até 480px */
+@media (max-width: 480px) {
+  .titulo {
+    font-size: 24px;
+  }
+
+  .subtitulo {
+    font-size: 14px;
+  }
+}
+
+/* Container flex para posicionar nav e botão */
+.nav-container {
+  display: flex;
+  justify-content: center; /* centraliza a ul */
+  align-items: center;
+  position: relative; /* permite posicionar botão dentro */
+  height: 100%;
+}
+
+/* Botão no canto superior direito da nav */
+.toggle-theme-btn {
+  position: fixed;
+  top: 0;              /* gruda no topo */
+  right: 20px;         /* alinhado à direita da tela */
+  height: 45px;        /* mesma altura da nav */
+  padding: 0 15px;
+  
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background-color: transparent;
+  border: 2px solid #9fffcb;
+  color: #9fffcb;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 16px;
+  font-family: 'Space Grotesk', sans-serif;
+  z-index: 1001;
+  transition: background-color 0.3s, color 0.3s;
+  top: 10px;
+}
+
+
+.toggle-theme-btn:hover {
+  background-color: #9fffcb;
+  color: #002631;
+}
+
+.toggle-theme-btn {
+  position: fixed;
+  top: 20px; /* <-- mesmo valor da nav para alinhar */
+  right: 20px;
+  height: 45px;
+  padding: 0 15px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background-color: #002631;
+  border: 2px solid #9fffcb;
+  color: #9fffcb;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 16px;
+  font-family: 'Space Grotesk', sans-serif;
+  z-index: 1001;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.toggle-theme-btn:hover {
+  background-color: #9fffcb;
+  color: #002631;
+}
+
+
+body.tema-claro {
+  background-color: #f4fefc;
+  color: #002631;
+}
+
+/* Container geral */
+body.tema-claro .container {
+  background-color: #e9f9f3;
+  border-color: #9fffcb;
+}
+
+/* Caixa do QR Code */
+body.tema-claro .caixa-direita {
+  background-color: #ffffff;
+  color: #002631;
+}
+
+/* Inputs */
+body.tema-claro input {
+  background-color: #ffffff;
+  color: #002631;
+  border: 1px solid #ccc;
+}
+
+/* Botões */
+body.tema-claro button,
+body.tema-claro .botao-direito button {
+  background-color: #9fffcb;
+  color: #002631;
+}
+
+/* Subtítulo */
+body.tema-claro .subtitulo {
+  color: #002631;
+}
+
+body.tema-claro .titulo {
+  color: #002631;
+}
+
+
+
+#00263
