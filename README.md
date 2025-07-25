@@ -16,7 +16,7 @@ Projeto simples para gerar QR Codes a partir de texto ou URLs, com opção de ba
 
 ## 🎨 Preview do projeto
 
-![Preview do projeto](./preview.png)
+![Preview do projeto](img/preview.png)
 
 
 **Deploy**: visualize [aqui](https://gerador-qrcode-rf.vercel.app)
