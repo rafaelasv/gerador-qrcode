@@ -33,26 +33,3 @@ function gerarQRCode() {
 function baixarQRCode() {
   qrCode.download({ name: "qrcode", extension: "png" });
 }
-
-
-const botaoTema = document.querySelector(".toggle-theme-btn");
-
-  // Aplica tema salvo no carregamento da página
-  document.addEventListener("DOMContentLoaded", () => {
-    const temaSalvo = localStorage.getItem("tema");
-    if (temaSalvo) {
-      document.body.classList.add(temaSalvo);
-    }
-  });
-
-  // Alterna o tema
-  botaoTema.addEventListener("click", () => {
-    document.body.classList.toggle("tema-claro");
-
-    // Salva no localStorage
-    if (document.body.classList.contains("tema-claro")) {
-      localStorage.setItem("tema", "tema-claro");
-    } else {
-      localStorage.removeItem("tema");
-    }
-  });
